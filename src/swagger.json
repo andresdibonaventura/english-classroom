@@ -1,0 +1,46 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "API Rest Clon de Airbnb",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/users": {
+            "get": {
+                "description": "Get all Users",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got all users"
+                    },
+                    "400": {
+                        "description": "we generate an error"
+                    }
+                }
+            }
+        },
+        "/api/v1/users/{id}": {
+            "get":{
+                "parameters":[
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "description": "We get a User by its ID",
+                "tags": ["Users", "v1"],
+                "responses": {
+                    "200": {
+                        "description": "we successfully got a user by its ID"
+                    },
+                    "400": {
+                        "description": "we generate an error for not finding a user with that ID"
+                    }
+                }
+            }
+        }
+    }
+}
