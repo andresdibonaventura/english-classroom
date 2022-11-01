@@ -16,18 +16,18 @@ const {db} = require('./utils/database')
 //* Configuraciones iniciales
 const app = express();
 
-// initModels()
-// db.authenticate()
-//   .then(() => console.log('Database Authenticated'))
-//   .catch(err => console.log(err))
-//   if(process.env.NODE_ENV === 'production'){
-//     db.sync() 
-//       .then(() => {
-//         console.log('Database synced')
-//         // defaultData()
-//       })
-//       .catch(err => console.log(err))
-//      } 
+initModels()
+db.authenticate()
+  .then(() => console.log('Database Authenticated'))
+  .catch(err => console.log(err))
+  if(process.env.NODE_ENV === 'production'){
+    db.sync() 
+      .then(() => {
+        console.log('Database synced')
+        // defaultData()
+      })
+      .catch(err => console.log(err))
+     } 
     //   else{
     // db.sync({force:true})
     //   .then(() => {
