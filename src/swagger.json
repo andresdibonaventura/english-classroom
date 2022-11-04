@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "API Rest Clon de Airbnb",
+        "title": "Classroom API Rest",
         "version": "1.0.0"
     },
     "paths": {
