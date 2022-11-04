@@ -15,6 +15,7 @@ const swaggerUI = require("swagger-ui-express")
 
 
 app.use(cors())
+app.use(express.json());
 
 
 
@@ -66,7 +67,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
 app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
 
-app.use(express.json());
+
 
 
 app.get("/api/v1/uploads/:imgName", (req ,res) => {
