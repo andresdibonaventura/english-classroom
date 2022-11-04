@@ -1,5 +1,6 @@
 //* Dependencias
 const express = require("express");
+const cors = require('cors');
 const passport = require("passport");
 require("./middleware/auth.middleware")(passport);
 const path = require('path')
@@ -11,8 +12,9 @@ const initModels = require("./models/initModels")
 const defaultData = require("./utils/defaultData")
 const swaggerDoc = require("./swagger.json")
 const swaggerUI = require("swagger-ui-express")
-const cors = require('cors')
 
+
+app.use(cors())
 
 
 
@@ -63,7 +65,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
 app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
-app.use(cors())
+
 app.use(express.json());
 
 
