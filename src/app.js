@@ -1,5 +1,6 @@
 //* Dependencias
 const express = require("express");
+const app = express()
 const cors = require('cors');
 const passport = require("passport");
 require("./middleware/auth.middleware")(passport);
@@ -24,7 +25,7 @@ app.use(express.json());
 const {db} = require('./utils/database')
 
 //* Configuraciones iniciales
-const app = express();
+
 
 initModels()
 // db.authenticate()
