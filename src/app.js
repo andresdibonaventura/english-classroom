@@ -12,6 +12,10 @@ const defaultData = require("./utils/defaultData")
 const swaggerDoc = require("./swagger.json")
 const swaggerUI = require("swagger-ui-express")
 const cors = require('cors')
+
+
+
+
 //* Configuraciones iniciales
 
 const {db} = require('./utils/database')
@@ -44,15 +48,7 @@ initModels()
 app.use(express.json());
 
 
-const cors = require('cors');
 
-
-var corsOptions = {
-    origin: 'http://127.0.0.1:8000',
-    optionsSuccessStatus: 200 // For legacy browser support
-}
-
-app.use(cors(corsOptions));
 
 //app.use(cors()); ALSO TRIED THIS
 
@@ -67,7 +63,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/task", taskRouter);
 app.use("/v1/doc", swaggerUI.serve, swaggerUI.setup(swaggerDoc))
-
+app.use(cors())
 
 
 app.get("/api/v1/uploads/:imgName", (req ,res) => {
