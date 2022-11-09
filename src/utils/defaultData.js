@@ -43,7 +43,7 @@ await Users.bulkCreate([{
     description: "write all the numbers util 100",
     response: "0",
     calification: "1",
-    userId: "$2b$10$Yz37nZKrjAjJz/uendIsl.FqqrnfE3zQiKZWs9kteUkhDR41tuSzO",
+    userId: "63cd6011-7e76-4d6d-b25b-1d6e4182ec2f",
 
  })
 }
