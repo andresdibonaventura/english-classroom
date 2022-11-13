@@ -35,18 +35,18 @@ initModels()
 //     db.sync() 
 //       .then(() => {
 //         console.log('Database synced')
-//         defaultData()
+       defaultData()
 //       })
 //       .catch(err => console.log(err))
 //      } 
-    //   else{
-    // db.sync({force:true})
-    //   .then(() => {
-    //     console.log('Database synced')
-    //     defaultData()
-    //   })
-    //   .catch(err => console.log(err))
-    // }
+//       else{
+//     db.sync({force:true})
+//       .then(() => {
+//         console.log('Database synced')
+//         defaultData()
+//       })
+//       .catch(err => console.log(err))
+//     }
 
 //? Esta configuracion es para habilitar el req.body
 

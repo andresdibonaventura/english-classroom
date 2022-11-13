@@ -37,7 +37,7 @@ await Users.bulkCreate([{
     status: "active",
 }])
 
- await Task.create({
+ await Task.bulkCreate([{
     id: "befd9829-89f4-4709-a59a-57f597080f8d",
     title: "numbers",
     description: "write all the numbers util 100",
@@ -45,7 +45,17 @@ await Users.bulkCreate([{
     calification: "1",
     userId: "63cd6011-7e76-4d6d-b25b-1d6e4182ec2f",
 
- })
+ },
+ {
+  id: "befd9829-89f4-4709-a59a-57f597080f8d",
+  title: "numbers2222",
+  description: "write all the numbers util 100",
+  response: "7",
+  calification: "9",
+  userId: "63cd6011-7e76-4d6d-b25b-1d6e4182ec2f",
+
+}
+])
 }
 
   module.exports = generateData

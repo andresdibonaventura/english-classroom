@@ -19,7 +19,7 @@ const createTask = async (userId, data) => {
 
 const getMyTask = async (id, userId) => {
 
-    const data = await Task.findOne({
+    const data = await Task.findAll({
         where:{
             userId: id
         }
