@@ -1,4 +1,5 @@
 
+const { response } = require('../app')
 const taskController = require('./task.controller')
 
 const create = (req, res) => {
@@ -23,6 +24,17 @@ const getMy = (req, res) => {
       .catch((err) => {
         res.status(404).json({ message: `The task with id ${id} is not found` });
       });
+}
+
+const getMyId = (req, res) => {
+    const id = req.params.id
+    taskController.getMyTaskById(id)
+    .then((response) => {
+      res.status(200).json(response)
+    })
+    .catch((err) => {
+      res.status(404).json({ message: `The task with id ${id} is not found`})
+    })
 }
 
 const edit = (req, res) => {
@@ -66,6 +78,7 @@ const editByStudent = (req, res) => {
 
 module.exports = {
     create,
+    getMyId,
     getMy,
     edit,
     editByStudent

@@ -13,6 +13,7 @@ router.route('/teacher')
 
 router.route('/teacher/:id')
 .put(passport.authenticate('jwt', {session: false}), roleTeacherMiddleware, taskServices.edit)
+.get(passport.authenticate('jwt', {session: false}), taskServices.getMyId)
 
 router.route('/me')
 .get(passport.authenticate('jwt', {session: false}), taskServices.getMy)
@@ -20,5 +21,7 @@ router.route('/me')
 router.route('/me/:id')
 .put(passport.authenticate('jwt', {session: false}), taskServices.editByStudent)
 
+router.route('/:id')
+.get(passport.authenticate('jwt', {session: false}), taskServices.getMyId)
 
 exports.router = router
