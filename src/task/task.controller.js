@@ -23,6 +23,7 @@ const getMyTaskById = async (id) => {
             id: id
         }
     })
+    return data
 }
 
 const getMyTask = async (id, userId) => {
