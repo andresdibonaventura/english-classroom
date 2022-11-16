@@ -60,7 +60,7 @@ const edit = (req, res) => {
 const editByStudent = (req, res) => {
     const id = req.params.id
     const data = req.body
-    const role = req.user.role
+   
     if (!Object.keys(data).length) {
         return res.status(400).json({ message: "Missing Data" });
       } else if (
@@ -68,7 +68,7 @@ const editByStudent = (req, res) => {
       ) {
         return res.status(400).json({message: "All fields must be completed"});
       } else {
-        const response = taskController.editTaskByStudent(id, role, data)
+        const response = taskController.editTaskByStudent(id,  data)
         return res.status(200).json({
           message: 'response edited succesfully',
           task: response

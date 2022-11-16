@@ -48,8 +48,8 @@ if ('teacher' === role){
 }
 }
 
-const editTaskByStudent = async (id, role, data) => {
-    if ('normal' === role){
+const editTaskByStudent = async (id,  data) => {
+   
         const {title, description, calification, userId, response, ...restOfProperties} = data
         console.log("first")
         const res = await Task.update(
@@ -59,7 +59,7 @@ const editTaskByStudent = async (id, role, data) => {
 
         console.log(res)
         return res
-    }
+    
     }
 
 
