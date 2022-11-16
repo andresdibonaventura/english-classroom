@@ -22,6 +22,6 @@ router.route('/me/:id')
 .put(passport.authenticate('jwt', {session: false}), taskServices.editByStudent)
 
 router.route('/:id')
-.get(passport.authenticate('jwt', {session: false}), taskServices.getMyId)
+.get(taskServices.getMyId)
 
 exports.router = router
