@@ -19,7 +19,7 @@ router.route('/me')
 .get(passport.authenticate('jwt', {session: false}), taskServices.getMy)
 
 router.route('/me/:id')
-.put( taskServices.editByStudent)
+.patch( taskServices.editByStudent)
 
 router.route('/:id')
 .get(taskServices.getMyId)
