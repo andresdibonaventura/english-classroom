@@ -49,16 +49,21 @@ if ('teacher' === role){
 }
 
 const editTaskByStudent = async (id,  data) => {
-   
-        const {title, description, calification, userId,  ...restOfProperties} = data
-        console.log("first")
-        const res = await Task.update(
-            {...restOfProperties, response},
-           {where:{id: id }}
-        );
+        try{
+            const {title, description, calification, userId,  ...restOfProperties} = data
+            console.log("first")
+            const res = await Task.update(
+                {...restOfProperties, response},
+               {where:{id: id }}
+            );
+            return res
+        } catch (error){ 
+            console.log(error)
+        }
+       
 
-        console.log(res)
-        return res
+   
+      
     
     }
 

@@ -57,7 +57,7 @@ const edit = (req, res) => {
       }
 }
 
-const editByStudent = (req, res) => {
+const editByStudent = async (req, res) => {
     const id = req.params.id
     const data = req.body
    
@@ -68,7 +68,7 @@ const editByStudent = (req, res) => {
       ) {
         return res.status(400).json({message: "All fields must be completed"});
       } else {
-        const response = taskController.editTaskByStudent(id,  data)
+        const response = await taskController.editTaskByStudent(id,  data)
         return res.status(200).json({
           message: 'response edited succesfully',
           task: response
