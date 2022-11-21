@@ -50,7 +50,7 @@ if ('teacher' === role){
 
 const editTaskByStudent = async (id,  data) => {
         try{
-            const {title, description, calification, userId,  ...restOfProperties} = data
+            const {title, description, calification, userId, response, ...restOfProperties} = data
             console.log("first")
             const res = await Task.update(
                 {...restOfProperties, response},

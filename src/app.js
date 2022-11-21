@@ -35,7 +35,7 @@ initModels()
 //     db.sync() 
 //       .then(() => {
 //         console.log('Database synced')
-       defaultData()
+      //  defaultData()
 //       })
 //       .catch(err => console.log(err))
 //      } 
