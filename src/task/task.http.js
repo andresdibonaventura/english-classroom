@@ -4,9 +4,9 @@ const taskController = require('./task.controller')
 
 const create = (req, res) => {
     const data = req.body 
-    const lastName = req.user.lastName
+    const userId = req.body.userId
     console.log("hola")
-    taskController.createTask(lastName, data)
+    taskController.createTask(userId, data)
     .then(response => {
         res.status(201).json(response)
     })

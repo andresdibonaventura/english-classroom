@@ -3,14 +3,14 @@ const uuid = require("uuid")
 
 const Task = require('../models/taskModels')
 
-const createTask = async (lastName, data) => {
+const createTask = async (userId, data) => {
     const newTask = await Task.create({
         id: uuid.v4(),
         title: data.title,
         description: data.description,
         response: data.response,
         calification: data.calification,
-        lastName: lastName
+        userId: userId
 
     })
     console.log("hola")
@@ -20,14 +20,6 @@ const createTask = async (lastName, data) => {
 const getAllTask = async () => {
     const data = await Task.findAll()
     return data
-}
-
-const getStudentTasks = async (id, userId) => {
-    const data = await Task.findAll({
-        where:{
-            userId: id
-        }
-    })
 }
 
 const getMyTaskById = async (id) => {
@@ -87,6 +79,5 @@ module.exports = {
     getMyTaskById,
     getMyTask,
     editTask,
-    editTaskByStudent,
-    getStudentTasks
+    editTaskByStudent
 }
