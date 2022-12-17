@@ -25,7 +25,7 @@ const Task = db.define('task', {
     type: DataTypes.INTEGER
    },
    userId: {
-    type: DataTypes.STRING,
+    type: DataTypes.UUID,
     allowNull: false,
     references: {
         model: Users, 
