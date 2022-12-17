@@ -10,7 +10,7 @@ const createTask = async (lastName, data) => {
         description: data.description,
         response: data.response,
         calification: data.calification,
-        lastName: data.lastName
+        lastName: lastName
 
     })
     console.log("hola")
