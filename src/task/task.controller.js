@@ -3,7 +3,7 @@ const uuid = require("uuid")
 
 const Task = require('../models/taskModels')
 
-const createTask = async (userId, data) => {
+const createTask = async (lastName, data) => {
     const newTask = await Task.create({
         id: uuid.v4(),
         title: data.title,
