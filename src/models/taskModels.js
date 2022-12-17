@@ -24,12 +24,12 @@ const Task = db.define('task', {
    calification: {
     type: DataTypes.INTEGER
    },
-   uname: {
+   lastName: {
     type: DataTypes.STRING,
     allowNull: false,
     references: {
         model: Users, 
-        key: 'firstName, lastName'
+        key: 'lastName'
     }
    }
 })
