@@ -21,6 +21,10 @@ router.route('/me')
 router.route('/me/:id')
 .patch( taskServices.editByStudent)
 
+router.route('teacher/student/:id')
+.get(taskServices.getByStudent)
+
+
 router.route('/:id')
 .get(taskServices.getMyId)
 

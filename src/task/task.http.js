@@ -15,6 +15,18 @@ const create = (req, res) => {
     })
 }
 
+const getByStudent = (req, res) => {
+  const id = req.user.id
+  taskController.getStudentTasks(id)
+  .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(404).json({ message: `The student with id ${id} is not found` });
+    });
+}
+
+
 const getMy = (req, res) => {
     const id = req.user.id
     taskController.getMyTask(id)
@@ -40,7 +52,6 @@ const getMyId = (req, res) => {
 const edit = (req, res) => {
     const id = req.params.id
     const data = req.body
-    const role = req.user.role
     if (!Object.keys(data).length) {
         return res.status(400).json({ message: "Missing Data" });
       } else if (
@@ -81,5 +92,6 @@ module.exports = {
     getMyId,
     getMy,
     edit,
-    editByStudent
+    editByStudent,
+    getByStudent
 }

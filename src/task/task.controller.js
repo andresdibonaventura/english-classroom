@@ -10,11 +10,24 @@ const createTask = async (userId, data) => {
         description: data.description,
         response: data.response,
         calification: data.calification,
-        userId: userId
+        uname: uname
 
     })
     console.log("hola")
     return newTask
+}
+
+const getAllTask = async () => {
+    const data = await Task.findAll()
+    return data
+}
+
+const getStudentTasks = async (id, userId) => {
+    const data = await Task.findAll({
+        where:{
+            userId: id
+        }
+    })
 }
 
 const getMyTaskById = async (id) => {
@@ -36,21 +49,21 @@ const getMyTask = async (id, userId) => {
     return data
 }
 
-const editTask = async (id,  role, data) => {
-if ('teacher' === role){
-    const { response, userId, title, description, calification, ...restOfProperties} = data
+const editTask = async (id, data) => {
+
+    const { response, uname, title, description, calification, ...restOfProperties} = data
     const res = await Task.update(
         {...restOfProperties, calification},
         {where: {id: id }}
    
     )
     return res
-}
+
 }
 
 const editTaskByStudent = async (id,  data) => {
         try{
-            const {title, description, calification, userId, response, ...restOfProperties} = data
+            const {title, description, calification, uname, response, ...restOfProperties} = data
             console.log("first")
             const res = await Task.update(
                 {...restOfProperties, response},
@@ -69,9 +82,11 @@ const editTaskByStudent = async (id,  data) => {
 
 
 module.exports = {
+    getAllTask,
     createTask,
     getMyTaskById,
     getMyTask,
     editTask,
-    editTaskByStudent
+    editTaskByStudent,
+    getStudentTasks
 }
