@@ -22,6 +22,15 @@ const getAllTask = async () => {
     return data
 }
 
+const getStudentTasks = async () => {
+    const data = await Task.findAll({
+        where: {
+            userId: id
+        }
+    })
+    return data
+}
+
 const getMyTaskById = async (id) => {
     const data = await Task.findOne({
         where:{
@@ -79,5 +88,6 @@ module.exports = {
     getMyTaskById,
     getMyTask,
     editTask,
-    editTaskByStudent
+    editTaskByStudent,
+    getStudentTasks
 }
